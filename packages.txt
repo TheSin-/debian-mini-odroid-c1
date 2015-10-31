@@ -1,1 +1,1 @@
-openssh-server wpasupplicant
+usbmount wpasupplicant
