@@ -1,1 +1,1 @@
-usbmount wpasupplicant
+firmware-atheros firmware-ralink usbmount wpasupplicant
