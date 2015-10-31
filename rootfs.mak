@@ -44,6 +44,7 @@ $(ROOTFS_DIR): $(ROOTFS_DIR).base
 	mount -o bind /proc $@/proc
 	mount -o bind /sys $@/sys
 	mount -o bind /dev $@/dev
+	cp packages.txt $@
 	cp postinstall $@
 	if [ -d "postinst" ]; then cp -r postinst $@ ; fi
 	LINUX_VERSION="$(shell cat $(LINUX_SRC)/include/config/kernel.release)" && chroot $@ /bin/bash -c "/postinstall $(DIST) $(DIST_URL) $$LINUX_VERSION"
@@ -52,6 +53,7 @@ $(ROOTFS_DIR): $(ROOTFS_DIR).base
 	umount $@/proc
 	umount $@/sys
 	umount $@/dev
+	rm $@/packages.txt
 	rm $@/postinstall
 	rm -rf $@/postinst/
 	rm $@/usr/bin/qemu-arm-static
