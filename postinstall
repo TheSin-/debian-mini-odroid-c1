@@ -35,6 +35,9 @@ adduser odroid video
 sed -i "s/^#[[:space:]]*en_US\.UTF-8\(.*\)/en_US\.UTF-8\1/g" /etc/locale.gen
 locale-gen
 
+# Make dpkg/apt-get noninteractive
+export DEBIAN_FRONTEND=noninteractive
+
 # Set timezone
 dpkg-reconfigure -f noninteractive tzdata
 
@@ -43,7 +46,7 @@ echo "deb $DIST_URL $DIST main contrib non-free" > /etc/apt/sources.list
 echo "deb-src $DIST_URL $DIST main contrib non-free" >> /etc/apt/sources.list
 
 # Update apt
-apt-get update
+apt-get -y update
 
 # Generate the initial ramfs
 update-initramfs -c -t -k $KERNEL_VERSION
@@ -60,7 +63,7 @@ chmod +x /usr/sbin/policy-rc.d
 
 # Install extra packages
 if [ -f /packages.txt ]; then
-	apt-get install $(cat /packages.txt);
+	apt-get -y install $(cat /packages.txt);
 fi
 
 # Run custom install scripts
