@@ -16,7 +16,7 @@ BOOT_DIR := boot
 MODS_DIR := mods
 ROOTFS_DIR := rootfs
 RAMDISK_FILE := uInitrd
-IMAGE_FILE := sdcard-$(DIST).img
+IMAGE_FILE := debian-$(DIST)-odroid-c1.img
 
 UBOOT_TOOLCHAIN := gcc-linaro-arm-none-eabi-4.8-2014.04_linux.tar.xz
 UBOOT_TOOLCHAIN_URL := http://releases.linaro.org/14.04/components/toolchain/binaries/$(UBOOT_TOOLCHAIN)
