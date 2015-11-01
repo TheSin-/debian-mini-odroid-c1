@@ -1,9 +1,10 @@
-sdcard-*.img
+debian-*.img
 linux_tc
 linux
 uboot_tc
 u-boot
 boot
+boot.example
 rootfs
 rootfs.base
 mods
