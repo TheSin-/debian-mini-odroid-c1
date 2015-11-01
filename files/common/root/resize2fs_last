@@ -12,8 +12,7 @@
 . /lib/lsb/init-functions
 
 do_finish_expand_rootfs() {
-  resize2fs /dev/mmcblk0p2 &&
-  ASK_TO_REBOOT=1
+  resize2fs /dev/mmcblk0p2
 }
 
 case "$1" in
@@ -22,8 +21,7 @@ case "$1" in
     do_finish_expand_rootfs &&
     rm /etc/init.d/resize2fs_last &&
     update-rc.d resize2fs_last remove &&
-    log_end_msg $? &&
-    reboot
+    log_end_msg $?
     ;;
   *)
     echo "Usage: $0 start" >&2
