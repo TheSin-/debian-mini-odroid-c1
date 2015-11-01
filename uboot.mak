@@ -1,6 +1,6 @@
 include common.mk
 
-export PATH := $(shell pwd)/$(UBOOT_TC_PATH):$(PATH)
+#export PATH := $(shell pwd)/$(UBOOT_TC_PATH):$(PATH)
 
 UBOOT_BIN := $(UBOOT_SRC)/sd_fuse/uboot.bin
 
@@ -27,7 +27,8 @@ $(UBOOT_TOOLCHAIN):
 .PHONY: build
 build: $(UBOOT_BIN)
 
-$(UBOOT_BIN): $(UBOOT_TC_DIR) $(UBOOT_SRC)
+#$(UBOOT_BIN): $(UBOOT_TC_DIR) $(UBOOT_SRC)
+$(UBOOT_BIN): $(UBOOT_SRC)
 	$(MAKE) -C $(UBOOT_SRC) odroidc_config
 	$(MAKE) -C $(UBOOT_SRC)
 	touch $@

@@ -11,10 +11,13 @@ Script to build a minimal Debian sd/eMMC card image.
 * Automatic mounting of USB storage devices using usbmount
 
 ## Prerequisites:
-On a x86 based Ubuntu system, make sure the following packages are installed:
+On a x86 based Debian system, make sure the following packages are installed:
 ```
 sudo apt-get install build-essential wget git lzop u-boot-tools binfmt-support \
-                     qemu qemu-user-static debootstrap parted dosfstools
+                     qemu qemu-user-static debootstrap parted dosfstools \
+                     binutils-arm-none-eabi gcc-arm-none-eabi \
+                     binutils-arm-linux-gnueabihf gcc-arm-linux-gnueabihf \
+                     g++-arm-linux-gnueabihf
 ```
 
 If you are running 64 bit Ubuntu, you might need to run the following commands to be able to launch the 32 bit toolchain:

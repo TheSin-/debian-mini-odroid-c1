@@ -2,7 +2,7 @@ include common.mk
 
 export ARCH := arm
 export CROSS_COMPILE := $(LINUX_TC_PREFIX)
-export PATH := $(shell pwd)/$(LINUX_TC_PATH):$(PATH)
+#export PATH := $(shell pwd)/$(LINUX_TC_PATH):$(PATH)
 
 UIMAGE_BIN := $(LINUX_SRC)/arch/arm/boot/uImage
 
@@ -38,7 +38,8 @@ $(BOOT_DIR): $(UIMAGE_BIN) $(MESON8B_ODROIDC_DTB_BIN)
 	mv "$@.tmp" $@
 	touch $@
 
-$(UIMAGE_BIN): $(LINUX_TC_DIR) $(LINUX_SRC)
+#$(UIMAGE_BIN): $(LINUX_TC_DIR) $(LINUX_SRC)
+$(UIMAGE_BIN): $(LINUX_SRC)
 	$(MAKE) -C $(LINUX_SRC) odroidc_defconfig
 	$(MAKE) -C $(LINUX_SRC) uImage
 	$(MAKE) -C $(LINUX_SRC) dtbs
